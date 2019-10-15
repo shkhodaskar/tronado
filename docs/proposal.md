@@ -8,7 +8,7 @@ Input: Game State(Pixel value)
 Output: A move (direction, up, left, right)
 
 Grid size is 20 by 20
-For our project, we will be creating a tron agent for the ColosseumRL competition trained through reinforcement learning. The goal of our project is to create an agent that will survive the longest in the competition. The input for the agent is a list of valid_actions and an observation. In the observation, we are always player 0. The agent picks “the best” valid action based on the observation. Potential applications include self driving cars in terms of avoiding crash, real time bidding etc.
+For our project, we will be creating a Tron agent for the ColosseumRL competition trained through reinforcement learning. The goal of our project is to create an agent that will survive the longest in the competition. The input for the agent is a list of valid_actions and an observation. In the observation, we are always player 0. The agent picks “the best” valid action based on the observation. Potential applications include self driving cars in terms of avoiding crash, real time bidding etc.
 
 ## AI/ML Algorithms
 
