@@ -19,16 +19,16 @@ For our project, we will be using self play to train the agent and modify its po
 
 
 ## Evaluation Plan
--Success determined by highest rank
--Or best score (score can be determined by how long the agent stays alive or if it kills another agent)
--Agent_v1
-	not run into itself or walls
--Agent_v2
-	surviving longer (stays alive until all/most of the blocks are filled)
--Agent_v3
-	blocking off large areas to kill enemies
--Agent_v4
-	world domination
+- Success determined by highest rank
+- Or best score (score can be determined by how long the agent stays alive or if it kills another agent)
+1. Agent_v1
+	- not run into itself or walls
+2. Agent_v2
+	- surviving longer (stays alive until all/most of the blocks are filled)
+3. Agent_v3
+	- blocking off large areas to kill enemies
+4. Agent_v4
+	- world domination
 
 ## Quantitative Evaluation: 
 Metrics - time it survives, tries to maximize its number of moves
