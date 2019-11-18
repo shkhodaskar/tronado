@@ -2,6 +2,12 @@
 
 ### Project Summary:
 
+##### Checkout the status report video by clicking the image below!
+
+![TronADO](https://img.youtube.com/vi/as4leTaJZoQ/0.jpg)]
+\(https://www.youtube.com/watch?v=as4leTaJZoQ&feature=youtu.be "TRONado Status Report Video")
+
+
 ##### Colosseum RL Competition:
 Tron is a fully-observable multiagent free-for-all turn-based game. The goal of the competition is to
 develop an agent that survives the longest. The agent must avoid walls and its opponents, but also learn
