@@ -4,8 +4,7 @@
 
 ##### Checkout the status report video by clicking the image below!
 
-![TronADO](https://img.youtube.com/vi/as4leTaJZoQ/0.jpg)]
-\(https://www.youtube.com/watch?v=as4leTaJZoQ&feature=youtu.be "TRONado Status Report Video")
+[![](http://img.youtube.com/vi/as4leTaJZoQ/0.jpg)](http://www.youtube.com/watch?v=as4leTaJZoQ "TRONado")
 
 
 ##### Colosseum RL Competition:
