@@ -24,6 +24,10 @@ run each algorithm for 1 million iterations and see which algorithm produces the
 we will adjust various hyperparameters in attempts to create a better agent than the default algorithm
 produces.
 
+![graph](./images/1.png)
+
+![chart](./images/2.png)
+
 Based off of these results, we chose to use PPO as our main algorithm because it did as well as DQN
 after 1 million iterations and it trained in 1/6th the time.
 
@@ -35,9 +39,12 @@ log of the probability of an action at a particular state, At compares if the pa
 other possible actions at that state, if At>0 then the action is better than the other possible
 actions.
 
+![eq1](./images/3.png)
+
 But instead of log function, we can take the ratio of the action under current policy to the
 probable action under the previous policy. Then the equation changes to the below equation.
 
+![eq2](./images/4.png)
 
 In the above equation, if the rt(theta) is more than 1, the current action is more probable and if
 the rt(theta) is between 0-1, then the action is less probable in the current policy than the old.
@@ -48,7 +55,7 @@ Therefore in PPO, to avoid extreme policy update the ratio at are too much away 
 clipped by changing the equation in the following manner. This method is called Clipped
 Surrogate Objective function.
 
-!PHOTO
+![eq3](./images/5.png)
 
 We used hyperparameter epsilon value of 0.2 from original Schulman et al paper. Thus ratio
 can only vary from 0.8 to 1.2.
@@ -58,7 +65,7 @@ can only vary from 0.8 to 1.2.
 After deciding on PPO as our choice of algorithm, we plan to further train our agent through self play in
 the following manner (Table 1):
 
-!PHOTO
+![table2](./images/6.png)
 
 In the first iteration, we train our agent against three random agents. After our agent learns to outwit its
 opponents and achieve a win rate of 75%, we will update the opponents to have the same weights as our
@@ -77,7 +84,7 @@ wins the game, it gets a +10 reward. If the agent loses, it gets a -1 reward. By
 increase over time, we can conclude that the agent is learning and surviving longer. After a certain point,
 the reward will plateau.
 
-!PHOTO
+![train1](./images/7.png)
 
 ##### Win-Rate Evaluation Method:
 The second way of evaluating our model is to look at the win-rate. The win-rate tells us how often our
@@ -85,11 +92,11 @@ agent is beating the other agents. Win-rate is calculated with the equation belo
 the average reward for the current policy and episodeLenMean is the average length of each of the
 games.
 
-!PHOTO
+![eq5](./images/8.png)
 
 We can see that the win percentage increases after each iteration, as does the average reward.
 
-!PHOTO
+![train2](./images/9.png)
 
 ##### Visual Evaluation Method:
 The third and least quantitative way of evaluation is to watch a game that uses the current policy. The
@@ -97,7 +104,7 @@ image on the left is an agent using the PPO algorithm during the 5th iteration. 
 the same agent after 20 iterations. We can see that the agent is no longer running into itself or the wall as
 often. It is also learning to make more complex moves in attempts to get a higher reward.
 
-!PHOTO
+![game](./images/10.png)
 
 ### Remaining Goals and Challenges:
 ##### Remaining Goals
