@@ -106,7 +106,7 @@ When having the top 4 agents compete against each other, there was a tie between
 ### **Result:**
 **Choosing Algorithm:**
 
-We first created three different agents trained using A3C, DQN and PPO as their algorithms. Each of these three agents competed against the 3 other SA agents for 1 million iterations (Figure ##) . We found that the PPO agents had the highest mean reward of 25.16 which is comparable to DQN at 25.38 but A3C had only 20.17 mean reward. Moreover, the PPO impressively achieved this mean reward in 36 minutes compared to 210 minutes taken by DQN making it almost 6 times faster( Table 2).
+We first created three different agents trained using A3C, DQN and PPO as their algorithms. Each of these three agents competed against the 3 other SA agents for 1 million iterations. We found that the PPO agents had the highest mean reward of 25.16 which is comparable to DQN at 25.38 but A3C had only 20.17 mean reward. Moreover, the PPO impressively achieved this mean reward in 36 minutes compared to 210 minutes taken by DQN making it almost 6 times faster (Table 2).
 
 ![reward_mean](./images2/8.PNG)
 
