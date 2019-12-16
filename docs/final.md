@@ -10,21 +10,8 @@ For our project we created an AI to play the game Tron. Tron is a fully-observab
 
 The environment is a 13x13 grid with 4 players (Our agent and 3 opponents). The grid is represented by a 2D array of integers where each player and their trail is represented by an integer and the empty spaces are zeros.
 
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, **2**, 0, 0],
-[0, 0, **1, 1, 1**, 0, 0, 0, 0, 0, **2**, 0, 0],
-[0, 0, **1**, 0, 0, 0, 0, 0, 0, 0, **2**, 0, 0],
-[0, 0, **1**, 0, 0, 0, 0, 0, 0, 0, **2**, 0, 0],
-[0, 0, **1**, 0, 0, 0, 0, 0, 0, 0, **2**, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, **2**, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, **4**, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[0, 0, 0, **4**, 0, 0, 0, 0, **3, 3, 3**, 0, 0],
-[0, 0, 0, **4**, 0, 0, 0, 0, **3**, 0, 0, 0, 0],
-[0, **4, 4, 4**, 0, 0, 0, 0, **3**, 0, 0, 0, 0]]
+![array](./images2/11.PNG)
 
-  
 
 **Agent**
 
@@ -47,9 +34,12 @@ The main objective of our project will be to develop an agent that can survive t
 In order to see which algorithm produces the best agent, we trained our agent using various feasible algorithms for 100,0000 iterations each time to compete against the SimpleAvoidAgent().  Our training approach revealed that PPO was the best algorithm for the project, it did as well as DQN after 1 million iterations and it trained in 1/6th the time. PPO also performed better than the A3C agent on the basis of the average reward.					
 **Proximal Policy Optimization:**						
 PPO improves the stability of the Actor training by limiting the policy update at each training step.
-The policy gradient or the loss function in the PPO is given by LPG(theta), PiTheta(at|st) is the log of the probability of an action at a particular state, At compares if the particular action with other possible actions at that state, if At>0 then the action is better than the other possible actions. 
-![loss](./images2/1.PNG)	 	 	 							
-But instead of log function, we can take the ratio of the action under current policy to the probable action under the previous policy. Then the equation changes to the below equation. 
+The policy gradient or the loss function in the PPO is given by LPG(theta), PiTheta(at|st) is the log of the probability of an action at a particular state, At compares if the particular action with other possible actions at that state, if At>0 then the action is better than the other possible actions.
+
+![loss](./images2/1.PNG)
+
+But instead of log function, we can take the ratio of the action under current policy to the probable action under the previous policy. Then the equation changes to the below equation.
+
 ![loss_clip](./images2/2.PNG)	                                                         
 						
 In the above equation, if the ​**rt(theta)**​ is more than 1, the current action is more probable and if the **​rt(theta)**​ is between 0-1, then the action is less probable in the current policy than the old. However in this case when ratio is large, the policy update is extremely large as well which is problematic. 					
@@ -72,10 +62,13 @@ One way to evaluate our model is to look at the reward the agent gets over time.
 ![training](./images2/4.PNG)	 
 								
 **Win-Rate Evaluation:**
-The second way of evaluating our model is to look at the win-rate. The win-rate tells us how often our agent is beating the other agents. Win-rate is calculated with the equation below where rewardMean is the average reward for the current policy and episodeLenMean is the average length of each of the games.	
+The second way of evaluating our model is to look at the win-rate. The win-rate tells us how often our agent is beating the other agents. Win-rate is calculated with the equation below where rewardMean is the average reward for the current policy and episodeLenMean is the average length of each of the games.
+
 ![winrate](./images2/5.PNG)	 	
 
+
 We can see that the win percentage increases after each iteration, as does the average reward.
+
 
 ![avg_reward](./images2/6.PNG)	 
 									
@@ -102,14 +95,19 @@ When having the top 4 agents compete against each other, there was a tie between
 
 ### Result:
 **Choosing Algorithm:**
-We first created three different agents trained using A3C, DQN and PPO as their algorithms. Each of these three agents competed against the 3 other SA agents for 1 million iterations (Figure ##) . We found that the PPO agents had the highest mean reward of 25.16 which is comparable to DQN at 25.38 but A3C had only 20.17 mean reward. Moreover, the PPO impressively achieved this mean reward in 36 minutes compared to 210 minutes taken by DQN making it almost 6 times faster( Table 2). 
+We first created three different agents trained using A3C, DQN and PPO as their algorithms. Each of these three agents competed against the 3 other SA agents for 1 million iterations (Figure ##) . We found that the PPO agents had the highest mean reward of 25.16 which is comparable to DQN at 25.38 but A3C had only 20.17 mean reward. Moreover, the PPO impressively achieved this mean reward in 36 minutes compared to 210 minutes taken by DQN making it almost 6 times faster( Table 2).
+
 ![reward_mean](./images2/8.PNG)	 
 
 
+
 ![chart](./images2/9.PNG)	 
+
 **Self-play results:**
 The results from testing self-play was rather disappointing. When we were training, we noticed that the agent was getting smarter and making more complex moves, to avoid other agents. However, when we placed the agent into the competition, the agent kept running into itself. We are not entirely sure what the issue was, but we believe that the server was not returning the board in the correct orientation for the agent to interpret. In other words, the agent was not where it believed itself to be. We spent several days trying to fix this, but we were unsuccessful.
-![results_self_play](./images2/10.PNG)	 
+
+![results_self_play](./images2/10.PNG)
+
 **RL competition:**
 In the final competition, we entered our PPO_v1 agent and DQN_v1 agent. We tested our self-play agent as well for fun. During the competition, we played against the SimpleAvoidAgent(), Alex’s PPO_Agent, and Alex’s self-play agent. Our PPO_v1 and DQN_v1 agents usually lost against Alex’s self-play agent, but it was pretty much a tie against Alex’s PPO_Agent. Despite getting destroyed by Alex’s self-play agent, our team got second place in the competition. 
 
