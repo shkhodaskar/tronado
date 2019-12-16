@@ -1,5 +1,11 @@
 ## **Project Summary**
 
+##### Checkout the status report video by clicking the image below!
+
+[![](https://img.youtube.com/vi/hiww45bKL-I/0.jpg)](https://www.youtube.com/watch?v=hiww45bKL-I "TRONado Final Report Video")
+
+
+
 **Tron Description**
 
 For our project we created an AI to play the game Tron. Tron is a fully-observable multiagent free-for-all turn-based game. During the player's turn, the player has the option to go straight, left, or right. Each agent controls a motorcycle with a trail following it. The goal of the agent is to survive the longest by following three simple rules: Not crashing into the walls, not running into other agent’s trails, and not running into the agent’s own trail.
