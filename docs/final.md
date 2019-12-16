@@ -48,9 +48,9 @@ In order to see which algorithm produces the best agent, we trained our agent us
 **Proximal Policy Optimization:**						
 PPO improves the stability of the Actor training by limiting the policy update at each training step.
 The policy gradient or the loss function in the PPO is given by LPG(theta), PiTheta(at|st) is the log of the probability of an action at a particular state, At compares if the particular action with other possible actions at that state, if At>0 then the action is better than the other possible actions. 
-![loss](./images2/1.png)	 	 	 							
+![loss](./images2/1.PNG)	 	 	 							
 But instead of log function, we can take the ratio of the action under current policy to the probable action under the previous policy. Then the equation changes to the below equation. 
-![loss_clip](./images2/2.png)	                                                         
+![loss_clip](./images2/2.PNG)	                                                         
 						
 In the above equation, if the ​**rt(theta)**​ is more than 1, the current action is more probable and if the **​rt(theta)**​ is between 0-1, then the action is less probable in the current policy than the old. However in this case when ratio is large, the policy update is extremely large as well which is problematic. 					
 Therefore in PPO, to avoid extreme policy update the ratio at are too much away from 1 are clipped by changing the equation in the following manner. This method is called Clipped Surrogate Objective function. 
@@ -58,7 +58,7 @@ We used hyperparameter epsilon value of 0.2 from original Schulman et al paper. 
 **Training agent through self-play:**						
 After deciding on PPO as our choice of algorithm, we let the PPO agent train for several hours against the SimpleAvoidAgent(). We realized that the agent’s skill plateaus because if it only trains the SimpleAvoidAgent, it’s skills will never improve beyond beating the SimpleAvoidAgent(). One way of continuously improving our agent was through a method called self-play. We trained our agent through self play in the following manner (Table 1): 
 
-![self_play](./images2/3.png)	 			
+![self_play](./images2/3.PNG)	 			
 
 		 						
 In the first iteration, we trained our agent against three random agents. After our agent learned to outwit its opponents and achieve a win rate of 72%, we updated the opponents to have the same weight as our agent, making the opponents the same skill level as our agent. At this point, the win rate dropped because our agent is now playing against opponents that are at the same skill level. We continued training and once our agent’s win rate increased pass a certain threshold, we replaced the opponents’ weights with a copy of our agent’s weights. We repeated this process until the win rate plateaus to get a well trained agent. We call this agent the ‘Self-Play’ agent. There is a possibility that our “best” agent is not the best because the agent can get stuck at a local min/max. To avoid this problem, we trained multiple agents and had them play each other to determine the best agent. 
@@ -69,22 +69,22 @@ In the first iteration, we trained our agent against three random agents. After 
 One way to evaluate our model is to look at the reward the agent gets over time. Every move that the agent makes that leads to the agent staying alive another step gives the agent a +1 reward. If the agent wins the game, it gets a +10 reward. If the agent loses, it gets a -1 reward. By looking at the reward increase over time, we can conclude that the agent is learning and surviving longer. After a certain point, the reward will plateau. 	
 
 
-![training](./images2/4.png)	 
+![training](./images2/4.PNG)	 
 								
 **Win-Rate Evaluation:**
 The second way of evaluating our model is to look at the win-rate. The win-rate tells us how often our agent is beating the other agents. Win-rate is calculated with the equation below where rewardMean is the average reward for the current policy and episodeLenMean is the average length of each of the games.	
-![winrate](./images2/5.png)	 	
+![winrate](./images2/5.PNG)	 	
 
 We can see that the win percentage increases after each iteration, as does the average reward.
 
-![avg_reward](./images2/6.png)	 
+![avg_reward](./images2/6.PNG)	 
 									
 
 
 **Visual Evaluation:**	
 The third and least quantitative way of evaluation is to watch a game that uses the current policy. The image on the left is an agent using the PPO algorithm during the 5th iteration. The image on the right is the same agent after 20 iterations. We can see that the agent is no longer running into itself or the wall as often. It is also learning to make more complex moves in attempts to get a higher reward.
 
-![train_agent](./images2/7.png)	 
+![train_agent](./images2/7.PNG)	 
 
  
 **Competition Evaluation:**
@@ -103,13 +103,13 @@ When having the top 4 agents compete against each other, there was a tie between
 ### Result:
 **Choosing Algorithm:**
 We first created three different agents trained using A3C, DQN and PPO as their algorithms. Each of these three agents competed against the 3 other SA agents for 1 million iterations (Figure ##) . We found that the PPO agents had the highest mean reward of 25.16 which is comparable to DQN at 25.38 but A3C had only 20.17 mean reward. Moreover, the PPO impressively achieved this mean reward in 36 minutes compared to 210 minutes taken by DQN making it almost 6 times faster( Table 2). 
-![reward_mean](./images2/8.png)	 
+![reward_mean](./images2/8.PNG)	 
 
 
-![chart](./images2/9.png)	 
+![chart](./images2/9.PNG)	 
 **Self-play results:**
 The results from testing self-play was rather disappointing. When we were training, we noticed that the agent was getting smarter and making more complex moves, to avoid other agents. However, when we placed the agent into the competition, the agent kept running into itself. We are not entirely sure what the issue was, but we believe that the server was not returning the board in the correct orientation for the agent to interpret. In other words, the agent was not where it believed itself to be. We spent several days trying to fix this, but we were unsuccessful.
-![results_self_play](./images2/10.png)	 
+![results_self_play](./images2/10.PNG)	 
 **RL competition:**
 In the final competition, we entered our PPO_v1 agent and DQN_v1 agent. We tested our self-play agent as well for fun. During the competition, we played against the SimpleAvoidAgent(), Alex’s PPO_Agent, and Alex’s self-play agent. Our PPO_v1 and DQN_v1 agents usually lost against Alex’s self-play agent, but it was pretty much a tie against Alex’s PPO_Agent. Despite getting destroyed by Alex’s self-play agent, our team got second place in the competition. 
 
