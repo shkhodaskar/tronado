@@ -1,6 +1,6 @@
 ## **Project Summary**
 
-##### Checkout the status report video by clicking the image below!
+##### Checkout the final report video by clicking the image below!
 
 [![](https://img.youtube.com/vi/hiww45bKL-I/0.jpg)](https://www.youtube.com/watch?v=hiww45bKL-I "TRONado Final Report Video")
 
