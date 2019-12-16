@@ -90,10 +90,12 @@ The third and least quantitative way of evaluation is to watch a game that uses 
 
 Since the status report, we have created many more agents using DQN, PPO, and self-play. To determine which of these agents is the best, we had 10 different agents play 20 games against the SimpleAvoidAgent(). We took the top 4 agents and had the agents compete against each other for 40 games. The top 4 agents included:
 
-DQN_Agent_v1: 70% win rate
-DQN_Agent_v2: 65% win rate
-PPO_Agent_v1: 70% win rate
-PPO_Agent_v2: 65% win rate
+
+1. DQN_Agent_v1: 70% win rate
+2. DQN_Agent_v2: 65% win rate
+3. PPO_Agent_v1: 70% win rate
+4. PPO_Agent_v2: 65% win rate
+
 
 You may notice that the self-play agents did not make the top 4. Explanation on this below.
 
